@@ -1,4 +1,4 @@
-package com.kbcoding.android.common.domain.model
+package com.kbcoding.android.domain.model
 
 sealed class Gender(val name: String) {
     object Male: Gender("male")

@@ -1,11 +1,11 @@
 package com.kbcoding.android.data.preferences
 
 import android.content.SharedPreferences
-import com.kbcoding.android.common.domain.model.ActivityLevel
-import com.kbcoding.android.common.domain.model.Gender
-import com.kbcoding.android.common.domain.model.GoalType
-import com.kbcoding.android.common.domain.model.UserInfo
-import com.kbcoding.android.common.domain.preferences.Preferences
+import com.kbcoding.android.domain.model.ActivityLevel
+import com.kbcoding.android.domain.model.Gender
+import com.kbcoding.android.domain.model.GoalType
+import com.kbcoding.android.domain.model.UserInfo
+import com.kbcoding.android.domain.preferences.Preferences
 import androidx.core.content.edit
 
 class DefaultPreferences(

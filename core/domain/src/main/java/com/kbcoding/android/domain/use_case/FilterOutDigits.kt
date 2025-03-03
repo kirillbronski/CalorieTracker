@@ -1,4 +1,4 @@
-package com.kbcoding.android.common.domain.use_case
+package com.kbcoding.android.domain.use_case
 
 class FilterOutDigits {
 

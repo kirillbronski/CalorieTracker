@@ -24,5 +24,5 @@ enableFeaturePreview("TYPESAFE_PROJECT_ACCESSORS")
 rootProject.name = "CalorieTracker"
 include(":app")
 include(":core:ui")
-include(":core:common")
+include(":core:domain")
 include(":core:data")

@@ -1,4 +1,4 @@
-package com.kbcoding.android.common.domain.model
+package com.kbcoding.android.domain.model
 
 sealed class GoalType(val name: String) {
     object LoseWeight: GoalType("lose_weight")

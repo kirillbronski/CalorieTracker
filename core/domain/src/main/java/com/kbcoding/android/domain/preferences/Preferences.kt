@@ -1,9 +1,9 @@
-package com.kbcoding.android.common.domain.preferences
+package com.kbcoding.android.domain.preferences
 
-import com.kbcoding.android.common.domain.model.ActivityLevel
-import com.kbcoding.android.common.domain.model.Gender
-import com.kbcoding.android.common.domain.model.GoalType
-import com.kbcoding.android.common.domain.model.UserInfo
+import com.kbcoding.android.domain.model.ActivityLevel
+import com.kbcoding.android.domain.model.Gender
+import com.kbcoding.android.domain.model.GoalType
+import com.kbcoding.android.domain.model.UserInfo
 
 interface Preferences {
     fun saveGender(gender: Gender)

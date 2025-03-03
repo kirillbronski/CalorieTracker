@@ -1,4 +1,4 @@
-package com.kbcoding.android.common.domain.model
+package com.kbcoding.android.domain.model
 
 data class UserInfo(
     val gender: Gender,
