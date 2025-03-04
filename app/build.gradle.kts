@@ -2,6 +2,9 @@ plugins {
     alias(libs.plugins.android.application)
     alias(libs.plugins.kotlin.android)
     alias(libs.plugins.kotlin.compose)
+    alias(libs.plugins.ksp)
+    alias(libs.plugins.hilt)
+    alias(libs.plugins.jetbrains.kotlin.serailization)
 }
 
 android {
@@ -37,6 +40,13 @@ android {
 }
 
 dependencies {
+
+    implementation(libs.hilt)
+    ksp(libs.hilt.compiler)
+    implementation(libs.hilt.navigation.compose)
+
+    implementation(libs.moshi.kotlin)
+    ksp(libs.moshi.kotlin.codegen)
 
     implementation(projects.core.domain)
     implementation(projects.core.ui)
