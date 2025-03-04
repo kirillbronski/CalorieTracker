@@ -41,6 +41,15 @@ android {
 
 dependencies {
 
+    implementation(libs.retrofit2)
+    implementation(libs.retrofit2.converter)
+    implementation(libs.okhttp)
+    implementation(libs.okhttp.interceptor)
+
+    implementation(libs.androidx.room.runtime)
+    ksp(libs.androidx.room.compiler)
+    implementation(libs.androidx.room.ktx)
+
     implementation(libs.hilt)
     ksp(libs.hilt.compiler)
     implementation(libs.hilt.navigation.compose)
@@ -48,17 +57,29 @@ dependencies {
     implementation(libs.moshi.kotlin)
     ksp(libs.moshi.kotlin.codegen)
 
+    implementation(libs.coroutines.core)
+
     implementation(projects.core.domain)
+    implementation(projects.core.data)
     implementation(projects.core.ui)
+    implementation(projects.onboarding.domain)
+    implementation(projects.onboarding.presentation)
+    implementation(projects.tracker.data)
+    implementation(projects.tracker.domain)
+    implementation(projects.tracker.presentation)
+
+    implementation(libs.androidx.core.ktx)
+    implementation(libs.androidx.appcompat)
 
     implementation(libs.androidx.core.ktx)
     implementation(libs.androidx.lifecycle.runtime.ktx)
+    implementation(libs.lifecycle.runtime.compose)
+    implementation(libs.lifecycle.viewmodel.compose)
     implementation(libs.androidx.activity.compose)
-    implementation(platform(libs.androidx.compose.bom))
-    implementation(libs.androidx.ui)
-    implementation(libs.androidx.ui.graphics)
-    implementation(libs.androidx.ui.tooling.preview)
-    implementation(libs.androidx.material3)
+    implementation(libs.androidx.navigation.compose)
+    implementation(libs.kotlinx.serialization.core)
+
+
     testImplementation(libs.junit)
     androidTestImplementation(libs.androidx.junit)
     androidTestImplementation(libs.androidx.espresso.core)
