@@ -9,6 +9,7 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
+import com.kbcoding.android.navigation.AgeScreenRoute
 import com.kbcoding.android.navigation.LocalNavController
 import com.kbcoding.android.navigation.WelcomeScreenRoute
 import com.kbcoding.android.onboarding.presentation.welcome.WelcomeScreen
@@ -31,13 +32,8 @@ fun Navigation(
             modifier = modifier
                 .fillMaxSize()
         ) {
-            composable<WelcomeScreenRoute> {
-                WelcomeScreen(
-                    onNextClick = {
-                        Toast.makeText(context, "не реализовано", Toast.LENGTH_SHORT).show()
-                    }
-                )
-            }
+            composable<WelcomeScreenRoute> { WelcomeScreen() }
+            composable<AgeScreenRoute> {  }
         }
     }
 

@@ -1,4 +1,4 @@
-package com.kbcoding.android.ui
+package com.kbcoding.android.ui.theme
 
 import androidx.compose.ui.graphics.Color
 

@@ -1,4 +1,4 @@
-package com.kbcoding.android.calorietracker.ui.theme
+package com.kbcoding.android.ui.theme
 
 import android.os.Build
 import androidx.compose.foundation.isSystemInDarkTheme
@@ -11,15 +11,8 @@ import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalContext
-import com.kbcoding.android.ui.BrightGreen
-import com.kbcoding.android.ui.DarkGray
-import com.kbcoding.android.ui.DarkGreen
 import com.kbcoding.android.ui.Dimensions
-import com.kbcoding.android.ui.LightGray
 import com.kbcoding.android.ui.LocalSpacing
-import com.kbcoding.android.ui.MediumGray
-import com.kbcoding.android.ui.Orange
-import com.kbcoding.android.ui.TextWhite
 
 private val DarkColorScheme = darkColorScheme(
     primary = BrightGreen,
