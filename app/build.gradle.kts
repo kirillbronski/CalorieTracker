@@ -62,6 +62,7 @@ dependencies {
     implementation(projects.core.domain)
     implementation(projects.core.data)
     implementation(projects.core.ui)
+    implementation(projects.navigation)
     implementation(projects.onboarding.domain)
     implementation(projects.onboarding.presentation)
     implementation(projects.tracker.data)

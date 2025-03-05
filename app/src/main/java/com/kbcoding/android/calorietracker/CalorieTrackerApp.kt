@@ -1,7 +1,17 @@
 package com.kbcoding.android.calorietracker
 
-import android.app.Application
-import dagger.hilt.android.HiltAndroidApp
+import androidx.compose.runtime.Composable
+import androidx.compose.ui.Modifier
+import androidx.navigation.compose.rememberNavController
 
-@HiltAndroidApp
-class CalorieTrackerApp: Application()
+@Composable
+fun CalorieTrackerApp(
+    modifier: Modifier = Modifier
+) {
+
+    val navController = rememberNavController()
+
+    Navigation(
+        navController = navController
+    )
+}

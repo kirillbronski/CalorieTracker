@@ -22,6 +22,7 @@ ksp = "2.1.10-1.0.29"
 retrofitVer = "2.9.0"
 okhttpVer = "5.0.0-alpha.2"
 roomRuntime = "2.6.1"
+kotlinxCollectionsImmutable = "0.3.7"
 
 [libraries]
 
@@ -69,6 +70,8 @@ okhttp-interceptor = { module = "com.squareup.okhttp3:logging-interceptor", vers
 androidx-room-compiler = { module = "androidx.room:room-compiler", version.ref = "roomRuntime" }
 androidx-room-ktx = { module = "androidx.room:room-ktx", version.ref = "roomRuntime" }
 androidx-room-runtime = { module = "androidx.room:room-runtime", version.ref = "roomRuntime" }
+
+kotlinx-collections-immutable = { module = "org.jetbrains.kotlinx:kotlinx-collections-immutable", version.ref = "kotlinxCollectionsImmutable" }
 
 
 [plugins]

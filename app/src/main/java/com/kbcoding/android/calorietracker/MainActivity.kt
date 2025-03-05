@@ -18,13 +18,12 @@ class MainActivity : ComponentActivity() {
         setContent {
             CalorieTrackerTheme {
                 Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
-                    WelcomeScreen(
-                        modifier = Modifier.padding(innerPadding),
-                        onNextClick = {
-
-                        })
+                    CalorieTrackerApp(
+                        modifier = Modifier.padding(innerPadding)
+                    )
                 }
             }
         }
     }
 }
+
