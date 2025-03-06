@@ -1,8 +1,14 @@
 package com.kbcoding.android.onboarding.presentation.weight
 
-import androidx.compose.foundation.layout.*
-import androidx.compose.material3.MaterialTheme
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.padding
 import androidx.compose.material.ScaffoldState
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
@@ -12,13 +18,13 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.hilt.navigation.compose.hiltViewModel
+import com.kbcoding.android.navigation.ActivityScreenRoute
 import com.kbcoding.android.navigation.LocalNavController
-import com.kbcoding.android.navigation.WeightScreenRoute
 import com.kbcoding.android.onboarding.presentation.components.ActionButton
 import com.kbcoding.android.onboarding.presentation.components.UnitTextField
 import com.kbcoding.android.ui.LocalSpacing
-import com.kbcoding.android.ui.UiEvent
 import com.kbcoding.android.ui.R
+import com.kbcoding.android.ui.UiEvent
 import com.kbcoding.android.ui.theme.CalorieTrackerTheme
 
 @Composable
@@ -33,12 +39,13 @@ fun WeightScreen(
     LaunchedEffect(key1 = true) {
         viewModel.uiEvent.collect { event ->
             when (event) {
-                is UiEvent.Success -> navController.navigate(WeightScreenRoute)
+                is UiEvent.Success -> navController.navigate(ActivityScreenRoute)
                 is UiEvent.ShowSnackbar -> {
                     scaffoldState.snackbarHostState.showSnackbar(
                         message = event.message.asString(context)
                     )
                 }
+
                 else -> Unit
             }
         }

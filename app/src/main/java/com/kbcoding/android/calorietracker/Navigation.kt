@@ -8,14 +8,18 @@ import androidx.compose.ui.Modifier
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
+import com.kbcoding.android.navigation.ActivityScreenRoute
 import com.kbcoding.android.navigation.AgeScreenRoute
 import com.kbcoding.android.navigation.GenderScreenRoute
+import com.kbcoding.android.navigation.GoalScreenRoute
 import com.kbcoding.android.navigation.HeightScreenRoute
 import com.kbcoding.android.navigation.LocalNavController
 import com.kbcoding.android.navigation.WeightScreenRoute
 import com.kbcoding.android.navigation.WelcomeScreenRoute
+import com.kbcoding.android.onboarding.presentation.activity.ActivityScreen
 import com.kbcoding.android.onboarding.presentation.age.AgeScreen
 import com.kbcoding.android.onboarding.presentation.gender.GenderScreen
+import com.kbcoding.android.onboarding.presentation.goal.GoalScreen
 import com.kbcoding.android.onboarding.presentation.height.HeightScreen
 import com.kbcoding.android.onboarding.presentation.weight.WeightScreen
 import com.kbcoding.android.onboarding.presentation.welcome.WelcomeScreen
@@ -43,6 +47,8 @@ fun Navigation(
             composable<AgeScreenRoute> { AgeScreen(scaffoldState) }
             composable<HeightScreenRoute> { HeightScreen(scaffoldState) }
             composable<WeightScreenRoute> { WeightScreen(scaffoldState) }
+            composable<ActivityScreenRoute> { ActivityScreen() }
+            composable<GoalScreenRoute> { GoalScreen() }
         }
     }
 
