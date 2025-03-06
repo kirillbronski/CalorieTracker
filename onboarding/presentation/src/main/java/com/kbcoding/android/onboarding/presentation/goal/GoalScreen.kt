@@ -131,7 +131,7 @@ private fun GoalContent(
 
 @Preview(showSystemUi = true, apiLevel = 30)
 @Composable
-fun ActivityContentPreview() {
+fun GoalContentPreview() {
     CalorieTrackerTheme {
         GoalContent(
             selectedGoalType = GoalType.KeepWeight,
