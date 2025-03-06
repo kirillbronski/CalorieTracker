@@ -16,6 +16,8 @@ import com.kbcoding.android.navigation.WeightScreenRoute
 import com.kbcoding.android.navigation.WelcomeScreenRoute
 import com.kbcoding.android.onboarding.presentation.age.AgeScreen
 import com.kbcoding.android.onboarding.presentation.gender.GenderScreen
+import com.kbcoding.android.onboarding.presentation.height.HeightScreen
+import com.kbcoding.android.onboarding.presentation.weight.WeightScreen
 import com.kbcoding.android.onboarding.presentation.welcome.WelcomeScreen
 
 @Composable
@@ -39,8 +41,8 @@ fun Navigation(
             composable<WelcomeScreenRoute> { WelcomeScreen() }
             composable<GenderScreenRoute> { GenderScreen() }
             composable<AgeScreenRoute> { AgeScreen(scaffoldState) }
-            composable<HeightScreenRoute> {  }
-            composable< WeightScreenRoute> {  }
+            composable<HeightScreenRoute> { HeightScreen(scaffoldState) }
+            composable<WeightScreenRoute> { WeightScreen(scaffoldState) }
         }
     }
 
