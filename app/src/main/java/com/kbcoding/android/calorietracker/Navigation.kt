@@ -1,6 +1,5 @@
 package com.kbcoding.android.calorietracker
 
-import android.widget.Toast
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
@@ -9,9 +8,10 @@ import androidx.compose.ui.platform.LocalContext
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
-import com.kbcoding.android.navigation.AgeScreenRoute
+import com.kbcoding.android.navigation.GenderScreenRoute
 import com.kbcoding.android.navigation.LocalNavController
 import com.kbcoding.android.navigation.WelcomeScreenRoute
+import com.kbcoding.android.onboarding.presentation.gender.GenderScreen
 import com.kbcoding.android.onboarding.presentation.welcome.WelcomeScreen
 
 @Composable
@@ -33,7 +33,7 @@ fun Navigation(
                 .fillMaxSize()
         ) {
             composable<WelcomeScreenRoute> { WelcomeScreen() }
-            composable<AgeScreenRoute> {  }
+            composable<GenderScreenRoute> { GenderScreen() }
         }
     }
 

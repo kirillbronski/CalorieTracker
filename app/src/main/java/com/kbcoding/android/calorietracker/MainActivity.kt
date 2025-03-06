@@ -11,18 +11,20 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.navigation.compose.rememberNavController
 import com.kbcoding.android.ui.theme.CalorieTrackerTheme
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         enableEdgeToEdge()
         setContent {
             CalorieTrackerTheme {
-                Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
+                //Scaffold(modifier = Modifier.fillMaxSize()) { innerPadding ->
                     CalorieTrackerApp(
-                        modifier = Modifier.padding(innerPadding)
+                        //modifier = Modifier.padding(innerPadding)
                     )
-                }
+                //}
             }
         }
     }

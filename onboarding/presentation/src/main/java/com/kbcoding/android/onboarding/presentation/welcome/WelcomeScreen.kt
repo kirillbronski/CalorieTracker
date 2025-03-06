@@ -14,7 +14,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
-import com.kbcoding.android.navigation.AgeScreenRoute
+import com.kbcoding.android.navigation.GenderScreenRoute
 import com.kbcoding.android.navigation.LocalNavController
 import com.kbcoding.android.onboarding.presentation.components.ActionButton
 import com.kbcoding.android.ui.LocalSpacing
@@ -30,7 +30,7 @@ fun WelcomeScreen(
 
     WelcomeContent(
         onNextClick = {
-            navController.navigate(AgeScreenRoute)
+            navController.navigate(GenderScreenRoute)
         },
         modifier = modifier
     )
@@ -59,7 +59,9 @@ private fun WelcomeContent(
         Spacer(modifier = Modifier.height(spacing.spaceMedium))
         ActionButton(
             text = stringResource(id = R.string.next),
-            onClick = { onNextClick },
+            onClick = {
+                onNextClick()
+            },
             modifier = Modifier.align(Alignment.CenterHorizontally)
         )
     }
