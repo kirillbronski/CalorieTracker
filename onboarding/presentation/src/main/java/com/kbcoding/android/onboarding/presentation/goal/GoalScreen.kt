@@ -10,7 +10,6 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
 import androidx.compose.material3.MaterialTheme
-import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.ui.Alignment
@@ -20,10 +19,9 @@ import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.hilt.navigation.compose.hiltViewModel
-import com.kbcoding.android.domain.model.ActivityLevel
 import com.kbcoding.android.domain.model.GoalType
-import com.kbcoding.android.navigation.GoalScreenRoute
 import com.kbcoding.android.navigation.LocalNavController
+import com.kbcoding.android.navigation.NutrientGoalScreenRoute
 import com.kbcoding.android.onboarding.presentation.components.ActionButton
 import com.kbcoding.android.onboarding.presentation.components.SelectableButton
 import com.kbcoding.android.ui.LocalSpacing
@@ -42,7 +40,7 @@ fun GoalScreen(
     LaunchedEffect(key1 = true) {
         viewModel.uiEvent.collect { event ->
             when (event) {
-                is UiEvent.Success -> navController.navigate(GoalScreenRoute)
+                is UiEvent.Success -> navController.navigate(NutrientGoalScreenRoute)
                 else -> Unit
             }
         }

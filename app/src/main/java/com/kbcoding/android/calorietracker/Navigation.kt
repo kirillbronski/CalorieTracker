@@ -14,6 +14,7 @@ import com.kbcoding.android.navigation.GenderScreenRoute
 import com.kbcoding.android.navigation.GoalScreenRoute
 import com.kbcoding.android.navigation.HeightScreenRoute
 import com.kbcoding.android.navigation.LocalNavController
+import com.kbcoding.android.navigation.NutrientGoalScreenRoute
 import com.kbcoding.android.navigation.WeightScreenRoute
 import com.kbcoding.android.navigation.WelcomeScreenRoute
 import com.kbcoding.android.onboarding.presentation.activity.ActivityScreen
@@ -21,6 +22,7 @@ import com.kbcoding.android.onboarding.presentation.age.AgeScreen
 import com.kbcoding.android.onboarding.presentation.gender.GenderScreen
 import com.kbcoding.android.onboarding.presentation.goal.GoalScreen
 import com.kbcoding.android.onboarding.presentation.height.HeightScreen
+import com.kbcoding.android.onboarding.presentation.nutrientGoal.NutrientGoalScreen
 import com.kbcoding.android.onboarding.presentation.weight.WeightScreen
 import com.kbcoding.android.onboarding.presentation.welcome.WelcomeScreen
 
@@ -49,6 +51,7 @@ fun Navigation(
             composable<WeightScreenRoute> { WeightScreen(scaffoldState) }
             composable<ActivityScreenRoute> { ActivityScreen() }
             composable<GoalScreenRoute> { GoalScreen() }
+            composable<NutrientGoalScreenRoute> { NutrientGoalScreen(scaffoldState) }
         }
     }
 

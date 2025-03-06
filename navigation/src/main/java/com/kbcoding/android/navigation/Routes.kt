@@ -29,4 +29,7 @@ data object ActivityScreenRoute
 data object GoalScreenRoute
 
 @Serializable
+data object NutrientGoalScreenRoute
+
+@Serializable
 data object TrackerOverviewScreenRoute
