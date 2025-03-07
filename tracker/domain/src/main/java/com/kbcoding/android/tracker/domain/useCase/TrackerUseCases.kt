@@ -1,4 +1,4 @@
-package com.kbcoding.android.tracker.domain.use_case
+package com.kbcoding.android.tracker.domain.useCase
 
 data class TrackerUseCases(
     val trackFood: TrackFood,

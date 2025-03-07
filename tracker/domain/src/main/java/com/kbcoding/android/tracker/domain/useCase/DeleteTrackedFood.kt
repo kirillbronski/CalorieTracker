@@ -1,4 +1,4 @@
-package com.kbcoding.android.tracker.domain.use_case
+package com.kbcoding.android.tracker.domain.useCase
 
 import com.kbcoding.android.tracker.domain.model.TrackedFood
 import com.kbcoding.android.tracker.domain.repository.TrackerRepository

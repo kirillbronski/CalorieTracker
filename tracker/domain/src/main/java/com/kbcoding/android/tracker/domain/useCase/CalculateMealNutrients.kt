@@ -1,4 +1,4 @@
-package com.kbcoding.android.tracker.domain.use_case
+package com.kbcoding.android.tracker.domain.useCase
 
 import com.kbcoding.android.domain.model.ActivityLevel
 import com.kbcoding.android.domain.model.Gender
@@ -33,16 +33,16 @@ class CalculateMealNutrients(
         val totalCalories = allNutrients.values.sumOf { it.calories }
 
         val userInfo = preferences.loadUserInfo()
-        val caloryGoal = dailyCaloryRequirement(userInfo)
-        val carbsGoal = (caloryGoal * userInfo.carbRatio / 4f).roundToInt()
-        val proteinGoal = (caloryGoal * userInfo.proteinRatio / 4f).roundToInt()
-        val fatGoal = (caloryGoal * userInfo.fatRatio / 9f).roundToInt()
+        val calorieGoal = dailyCalorieRequirement(userInfo)
+        val carbsGoal = (calorieGoal * userInfo.carbRatio / 4f).roundToInt()
+        val proteinGoal = (calorieGoal * userInfo.proteinRatio / 4f).roundToInt()
+        val fatGoal = (calorieGoal * userInfo.fatRatio / 9f).roundToInt()
 
         return Result(
             carbsGoal = carbsGoal,
             proteinGoal = proteinGoal,
             fatGoal = fatGoal,
-            caloriesGoal = caloryGoal,
+            caloriesGoal = calorieGoal,
             totalCarbs = totalCarbs,
             totalProtein = totalProtein,
             totalFat = totalFat,
@@ -64,7 +64,7 @@ class CalculateMealNutrients(
         }
     }
 
-    private fun dailyCaloryRequirement(userInfo: UserInfo): Int {
+    private fun dailyCalorieRequirement(userInfo: UserInfo): Int {
         val activityFactor = when(userInfo.activityLevel) {
             is ActivityLevel.Low -> 1.2f
             is ActivityLevel.Medium -> 1.3f
