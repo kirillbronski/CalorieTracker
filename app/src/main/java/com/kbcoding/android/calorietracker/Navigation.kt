@@ -15,6 +15,7 @@ import com.kbcoding.android.navigation.GoalScreenRoute
 import com.kbcoding.android.navigation.HeightScreenRoute
 import com.kbcoding.android.navigation.LocalNavController
 import com.kbcoding.android.navigation.NutrientGoalScreenRoute
+import com.kbcoding.android.navigation.TrackerOverviewScreenRoute
 import com.kbcoding.android.navigation.WeightScreenRoute
 import com.kbcoding.android.navigation.WelcomeScreenRoute
 import com.kbcoding.android.onboarding.presentation.activity.ActivityScreen
@@ -25,6 +26,7 @@ import com.kbcoding.android.onboarding.presentation.height.HeightScreen
 import com.kbcoding.android.onboarding.presentation.nutrientGoal.NutrientGoalScreen
 import com.kbcoding.android.onboarding.presentation.weight.WeightScreen
 import com.kbcoding.android.onboarding.presentation.welcome.WelcomeScreen
+import com.kbcoding.android.tracker.presentation.overview.TrackerOverviewScreen
 
 @Composable
 fun Navigation(
@@ -40,7 +42,7 @@ fun Navigation(
 
         NavHost(
             navController = navController,
-            startDestination = if (isShouldShowOnboarding) WelcomeScreenRoute else GenderScreenRoute,
+            startDestination = if (isShouldShowOnboarding) WelcomeScreenRoute else TrackerOverviewScreenRoute,
             modifier = modifier
                 .fillMaxSize()
         ) {
@@ -52,7 +54,12 @@ fun Navigation(
             composable<ActivityScreenRoute> { ActivityScreen() }
             composable<GoalScreenRoute> { GoalScreen() }
             composable<NutrientGoalScreenRoute> { NutrientGoalScreen(scaffoldState) }
+            composable<TrackerOverviewScreenRoute> {
+                TrackerOverviewScreen(onNavigateToSearch = { mealName, dayOfMonth, month, year ->
+
+                }
+                )
+            }
         }
     }
-
 }

@@ -1,26 +1,32 @@
 package com.kbcoding.android.onboarding.presentation.nutrientGoal
 
-import androidx.compose.foundation.layout.*
-import androidx.compose.material3.MaterialTheme
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.padding
 import androidx.compose.material.ScaffoldState
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.tooling.preview.Preview
 import androidx.hilt.navigation.compose.hiltViewModel
+import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.kbcoding.android.navigation.LocalNavController
-import com.kbcoding.android.navigation.NutrientGoalScreenRoute
+import com.kbcoding.android.navigation.TrackerOverviewScreenRoute
 import com.kbcoding.android.onboarding.presentation.components.ActionButton
 import com.kbcoding.android.onboarding.presentation.components.UnitTextField
 import com.kbcoding.android.ui.LocalSpacing
-import com.kbcoding.android.ui.UiEvent
 import com.kbcoding.android.ui.R
-import androidx.compose.runtime.getValue
-import androidx.compose.ui.tooling.preview.Preview
-import androidx.lifecycle.compose.collectAsStateWithLifecycle
+import com.kbcoding.android.ui.UiEvent
 import com.kbcoding.android.ui.theme.CalorieTrackerTheme
 
 @Composable
@@ -37,12 +43,13 @@ fun NutrientGoalScreen(
     LaunchedEffect(key1 = true) {
         viewModel.uiEvent.collect { event ->
             when (event) {
-                is UiEvent.Success -> navController.navigate(NutrientGoalScreenRoute)
+                is UiEvent.Success -> navController.navigate(TrackerOverviewScreenRoute)
                 is UiEvent.ShowSnackbar -> {
                     scaffoldState.snackbarHostState.showSnackbar(
                         message = event.message.asString(context)
                     )
                 }
+
                 else -> Unit
             }
         }
