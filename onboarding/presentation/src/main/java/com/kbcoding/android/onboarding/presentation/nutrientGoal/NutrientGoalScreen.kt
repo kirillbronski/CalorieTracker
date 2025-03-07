@@ -21,7 +21,6 @@ import com.kbcoding.android.ui.R
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
-import com.kbcoding.android.onboarding.presentation.height.HeightContent
 import com.kbcoding.android.ui.theme.CalorieTrackerTheme
 
 @Composable
