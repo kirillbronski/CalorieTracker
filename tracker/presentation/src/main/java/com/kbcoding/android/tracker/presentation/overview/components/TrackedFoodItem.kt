@@ -16,12 +16,14 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.layout.ContentScale
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import coil.annotation.ExperimentalCoilApi
-import coil.compose.rememberImagePainter
+import coil.compose.rememberAsyncImagePainter
+import coil.request.ImageRequest
 import com.kbcoding.android.tracker.domain.model.TrackedFood
 import com.kbcoding.android.tracker.presentation.components.NutrientInfo
 import com.kbcoding.android.ui.LocalSpacing
@@ -50,14 +52,13 @@ fun TrackedFoodItem(
         verticalAlignment = Alignment.CenterVertically
     ) {
         Image(
-            painter = rememberImagePainter(
-                data = trackedFood.imageUrl,
-                builder = {
-                    crossfade(true)
-                    error(R.drawable.ic_burger)
-                    fallback(R.drawable.ic_burger)
-                }
-            ),
+            painter = rememberAsyncImagePainter(ImageRequest.Builder(LocalContext.current).data(
+                trackedFood.imageUrl
+            ).apply(fun ImageRequest.Builder.() {
+                crossfade(true)
+                error(R.drawable.ic_burger)
+                fallback(R.drawable.ic_burger)
+            }).build()),
             contentDescription = trackedFood.name,
             contentScale = ContentScale.Crop,
             modifier = Modifier
