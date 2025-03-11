@@ -6,6 +6,8 @@ import com.kbcoding.android.tracker.data.local.TrackerDatabase
 import com.kbcoding.android.tracker.data.remote.OpenFoodApi
 import com.kbcoding.android.tracker.data.repository.TrackerRepositoryImpl
 import com.kbcoding.android.tracker.domain.repository.TrackerRepository
+import com.squareup.moshi.Moshi
+import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -36,12 +38,16 @@ object TrackerDataModule {
     @Provides
     @Singleton
     fun provideOpenFoodApi(client: OkHttpClient): OpenFoodApi {
+        val moshi = Moshi.Builder()
+            .add(KotlinJsonAdapterFactory()) // Добавляем поддержку Kotlin
+            .build()
+
         return Retrofit.Builder()
             .baseUrl(OpenFoodApi.BASE_URL)
-            .addConverterFactory(MoshiConverterFactory.create())
+            .addConverterFactory(MoshiConverterFactory.create(moshi)) // Передаём `moshi`
             .client(client)
             .build()
-            .create()
+            .create(OpenFoodApi::class.java)
     }
 
     @Provides

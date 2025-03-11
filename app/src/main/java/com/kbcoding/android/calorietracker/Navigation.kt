@@ -4,10 +4,12 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.material.ScaffoldState
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
+import androidx.compose.ui.ExperimentalComposeUiApi
 import androidx.compose.ui.Modifier
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
+import androidx.navigation.toRoute
 import com.kbcoding.android.navigation.ActivityScreenRoute
 import com.kbcoding.android.navigation.AgeScreenRoute
 import com.kbcoding.android.navigation.GenderScreenRoute
@@ -15,6 +17,7 @@ import com.kbcoding.android.navigation.GoalScreenRoute
 import com.kbcoding.android.navigation.HeightScreenRoute
 import com.kbcoding.android.navigation.LocalNavController
 import com.kbcoding.android.navigation.NutrientGoalScreenRoute
+import com.kbcoding.android.navigation.SearchScreenRoute
 import com.kbcoding.android.navigation.TrackerOverviewScreenRoute
 import com.kbcoding.android.navigation.WeightScreenRoute
 import com.kbcoding.android.navigation.WelcomeScreenRoute
@@ -27,7 +30,9 @@ import com.kbcoding.android.onboarding.presentation.nutrientGoal.NutrientGoalScr
 import com.kbcoding.android.onboarding.presentation.weight.WeightScreen
 import com.kbcoding.android.onboarding.presentation.welcome.WelcomeScreen
 import com.kbcoding.android.tracker.presentation.overview.TrackerOverviewScreen
+import com.kbcoding.android.tracker.presentation.search.SearchScreen
 
+@OptIn(ExperimentalComposeUiApi::class)
 @Composable
 fun Navigation(
     isShouldShowOnboarding: Boolean,
@@ -56,8 +61,26 @@ fun Navigation(
             composable<NutrientGoalScreenRoute> { NutrientGoalScreen(scaffoldState) }
             composable<TrackerOverviewScreenRoute> {
                 TrackerOverviewScreen(onNavigateToSearch = { mealName, dayOfMonth, month, year ->
-
+                    navController.navigate(
+                        SearchScreenRoute(
+                            mealName = mealName,
+                            dayOfMonth = dayOfMonth,
+                            month = month,
+                            year = year
+                        )
+                    )
                 }
+                )
+            }
+            composable<SearchScreenRoute> {
+                val args = it.toRoute<SearchScreenRoute>()
+                SearchScreen(
+                    scaffoldState = scaffoldState,
+                    mealName = args.mealName,
+                    dayOfMonth = args.dayOfMonth,
+                    month = args.month,
+                    year = args.year,
+                    onNavigateUp = { navController.navigateUp() }
                 )
             }
         }
