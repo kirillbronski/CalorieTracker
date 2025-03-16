@@ -7,7 +7,6 @@ import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
-import androidx.compose.material.ScaffoldState
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -26,12 +25,13 @@ import com.kbcoding.android.onboarding.presentation.components.ActionButton
 import com.kbcoding.android.onboarding.presentation.components.UnitTextField
 import com.kbcoding.android.ui.LocalSpacing
 import com.kbcoding.android.ui.R
+import com.kbcoding.android.ui.SnackbarController
+import com.kbcoding.android.ui.SnackbarEvent
 import com.kbcoding.android.ui.UiEvent
 import com.kbcoding.android.ui.theme.CalorieTrackerTheme
 
 @Composable
 fun NutrientGoalScreen(
-    scaffoldState: ScaffoldState,
     viewModel: NutrientGoalViewModel = hiltViewModel()
 ) {
 
@@ -45,9 +45,7 @@ fun NutrientGoalScreen(
             when (event) {
                 is UiEvent.Success -> navController.navigate(TrackerOverviewScreenRoute)
                 is UiEvent.ShowSnackbar -> {
-                    scaffoldState.snackbarHostState.showSnackbar(
-                        message = event.message.asString(context)
-                    )
+                    SnackbarController.sendEvent(SnackbarEvent(event.message.asString(context)))
                 }
 
                 else -> Unit

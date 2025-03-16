@@ -6,9 +6,11 @@ import androidx.activity.compose.setContent
 import androidx.activity.enableEdgeToEdge
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
-import androidx.compose.material.rememberScaffoldState
 import androidx.compose.material3.Scaffold
+import androidx.compose.material3.SnackbarHost
+import androidx.compose.material3.SnackbarHostState
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Modifier
 import androidx.navigation.compose.rememberNavController
 import com.kbcoding.android.domain.preferences.Preferences
@@ -43,14 +45,19 @@ fun CalorieTrackerApp(
 ) {
 
     val navController = rememberNavController()
-    val scaffoldState = rememberScaffoldState()
+
+    val snackbarHostState = remember { SnackbarHostState() }
+
+    SetupSnackbar(snackbarHostState)
 
     Scaffold(
         modifier = Modifier.fillMaxSize(),
+        snackbarHost = {
+            SnackbarHost(snackbarHostState)
+        },
     ) { padding ->
         Navigation(
             isShouldShowOnboarding = isShouldShowOnboarding,
-            scaffoldState = scaffoldState,
             navController = navController,
             modifier = modifier.padding(padding)
         )

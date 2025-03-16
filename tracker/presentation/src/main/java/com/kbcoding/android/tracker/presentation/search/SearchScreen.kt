@@ -5,7 +5,6 @@ import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.items
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.MaterialTheme
-import androidx.compose.material.ScaffoldState
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
@@ -25,12 +24,13 @@ import com.kbcoding.android.ui.LocalSpacing
 import com.kbcoding.android.ui.UiEvent
 import java.time.LocalDate
 import com.kbcoding.android.ui.R
+import com.kbcoding.android.ui.SnackbarController
+import com.kbcoding.android.ui.SnackbarEvent
 
 @ExperimentalCoilApi
 @ExperimentalComposeUiApi
 @Composable
 fun SearchScreen(
-    scaffoldState: ScaffoldState,
     mealName: String,
     dayOfMonth: Int,
     month: Int,
@@ -46,9 +46,7 @@ fun SearchScreen(
         viewModel.uiEvent.collect { event ->
             when (event) {
                 is UiEvent.ShowSnackbar -> {
-                    scaffoldState.snackbarHostState.showSnackbar(
-                        message = event.message.asString(context)
-                    )
+                    SnackbarController.sendEvent(SnackbarEvent(event.message.asString(context)))
                     keyboardController?.hide()
                 }
                 is UiEvent.NavigateUp -> onNavigateUp()

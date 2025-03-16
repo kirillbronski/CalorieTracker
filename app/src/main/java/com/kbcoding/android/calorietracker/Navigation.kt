@@ -1,7 +1,6 @@
 package com.kbcoding.android.calorietracker
 
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.material.ScaffoldState
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.CompositionLocalProvider
 import androidx.compose.ui.ExperimentalComposeUiApi
@@ -36,10 +35,11 @@ import com.kbcoding.android.tracker.presentation.search.SearchScreen
 @Composable
 fun Navigation(
     isShouldShowOnboarding: Boolean,
-    scaffoldState: ScaffoldState,
     navController: NavHostController,
     modifier: Modifier = Modifier
 ) {
+
+
 
     CompositionLocalProvider(
         value = LocalNavController provides navController
@@ -53,12 +53,12 @@ fun Navigation(
         ) {
             composable<WelcomeScreenRoute> { WelcomeScreen() }
             composable<GenderScreenRoute> { GenderScreen() }
-            composable<AgeScreenRoute> { AgeScreen(scaffoldState) }
-            composable<HeightScreenRoute> { HeightScreen(scaffoldState) }
-            composable<WeightScreenRoute> { WeightScreen(scaffoldState) }
+            composable<AgeScreenRoute> { AgeScreen() }
+            composable<HeightScreenRoute> { HeightScreen() }
+            composable<WeightScreenRoute> { WeightScreen() }
             composable<ActivityScreenRoute> { ActivityScreen() }
             composable<GoalScreenRoute> { GoalScreen() }
-            composable<NutrientGoalScreenRoute> { NutrientGoalScreen(scaffoldState) }
+            composable<NutrientGoalScreenRoute> { NutrientGoalScreen() }
             composable<TrackerOverviewScreenRoute> {
                 TrackerOverviewScreen(onNavigateToSearch = { mealName, dayOfMonth, month, year ->
                     navController.navigate(
@@ -75,7 +75,6 @@ fun Navigation(
             composable<SearchScreenRoute> {
                 val args = it.toRoute<SearchScreenRoute>()
                 SearchScreen(
-                    scaffoldState = scaffoldState,
                     mealName = args.mealName,
                     dayOfMonth = args.dayOfMonth,
                     month = args.month,

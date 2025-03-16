@@ -2,7 +2,6 @@ package com.kbcoding.android.onboarding.presentation.height
 
 import androidx.compose.foundation.layout.*
 import androidx.compose.material3.MaterialTheme
-import androidx.compose.material.ScaffoldState
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
@@ -19,11 +18,12 @@ import com.kbcoding.android.onboarding.presentation.components.UnitTextField
 import com.kbcoding.android.ui.LocalSpacing
 import com.kbcoding.android.ui.UiEvent
 import com.kbcoding.android.ui.R
+import com.kbcoding.android.ui.SnackbarController
+import com.kbcoding.android.ui.SnackbarEvent
 import com.kbcoding.android.ui.theme.CalorieTrackerTheme
 
 @Composable
 fun HeightScreen(
-    scaffoldState: ScaffoldState,
     viewModel: HeightViewModel = hiltViewModel()
 ) {
 
@@ -35,9 +35,7 @@ fun HeightScreen(
             when (event) {
                 is UiEvent.Success -> navController.navigate(WeightScreenRoute)
                 is UiEvent.ShowSnackbar -> {
-                    scaffoldState.snackbarHostState.showSnackbar(
-                        message = event.message.asString(context)
-                    )
+                    SnackbarController.sendEvent(SnackbarEvent(event.message.asString(context)))
                 }
                 else -> Unit
             }
