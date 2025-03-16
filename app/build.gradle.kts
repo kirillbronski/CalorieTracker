@@ -4,7 +4,7 @@ plugins {
     alias(libs.plugins.kotlin.compose)
     alias(libs.plugins.ksp)
     alias(libs.plugins.hilt)
-    alias(libs.plugins.jetbrains.kotlin.serailization)
+    //alias(libs.plugins.jetbrains.kotlin.serailization)
 }
 
 android {
@@ -69,16 +69,16 @@ dependencies {
     implementation(projects.tracker.domain)
     implementation(projects.tracker.presentation)
 
-    implementation(libs.androidx.core.ktx)
-    implementation(libs.androidx.appcompat)
+    //implementation(libs.androidx.core.ktx)
+    //implementation(libs.androidx.appcompat)
 
-    implementation(libs.androidx.core.ktx)
-    implementation(libs.androidx.lifecycle.runtime.ktx)
-    implementation(libs.lifecycle.runtime.compose)
-    implementation(libs.lifecycle.viewmodel.compose)
-    implementation(libs.androidx.activity.compose)
+    //implementation(libs.androidx.core.ktx)
+    //implementation(libs.androidx.lifecycle.runtime.ktx)
+    //implementation(libs.lifecycle.runtime.compose)
+    //implementation(libs.lifecycle.viewmodel.compose)
+    //implementation(libs.androidx.activity.compose)
     implementation(libs.androidx.navigation.compose)
-    implementation(libs.kotlinx.serialization.core)
+    //implementation(libs.kotlinx.serialization.core)
 
 
     testImplementation(libs.junit)

@@ -1,4 +1,5 @@
 pluginManagement {
+    includeBuild("build-conventions")
     repositories {
         google {
             content {
@@ -11,6 +12,7 @@ pluginManagement {
         gradlePluginPortal()
     }
 }
+
 dependencyResolutionManagement {
     repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
     repositories {
@@ -18,6 +20,8 @@ dependencyResolutionManagement {
         mavenCentral()
     }
 }
+
+gradle.startParameter.excludedTaskNames.add(":build-conventions:plugins:testClasses")
 
 enableFeaturePreview("TYPESAFE_PROJECT_ACCESSORS")
 
